@@ -6,6 +6,7 @@ public class SortingTimeMeasurement {
     public static void main(String[] args) {
         int[] sizes = {32000, 64000, 128000};
         int numMeasurements = 5;
+        double smallConstant = 1e-6; // En liten konstant for å unngå nullverdier
 
         // Tabell for resultater
         System.out.println("Resultater for alle sorteringsmetoder:");
@@ -57,17 +58,23 @@ public class SortingTimeMeasurement {
 
             // Beregn konstanten c for hver metode
             double log2n = Math.log(size) / Math.log(2); // Bruk log2 istedenfor ln
-            double cInsertion = avgInsertionSortTime / (size * size);
-            double cSelection = avgSelectionSortTime / (size * size);
-            double cQuick = avgQuickSortTime / (size * log2n);
-            double cMerge = avgMergeSortTime / (size * log2n);
+
+            double cInsertion = (avgInsertionSortTime + smallConstant) / (size * size);
+            double cSelection = (avgSelectionSortTime + smallConstant) / (size * size);
+            double cQuick = (avgQuickSortTime + smallConstant) / (size * log2n);
+            double cMerge = (avgMergeSortTime + smallConstant) / (size * log2n);
+
+            // Beregn teoretisk tid for hver metode
+            double theoreticalInsertionTime = Math.max(cInsertion * size * size, avgInsertionSortTime);
+            double theoreticalSelectionTime = Math.max(cSelection * size * size, avgSelectionSortTime);
+            double theoreticalQuickTime = Math.max(cQuick * size * log2n, avgQuickSortTime);
+            double theoreticalMergeTime = Math.max(cMerge * size * log2n, avgMergeSortTime);
 
             // Skriv ut resultatene for hver metode
-            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.2f\n", size, "Insertion Sort", avgInsertionSortTime, cInsertion * size * size, cInsertion);
-            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.2f\n", size, "Selection Sort", avgSelectionSortTime, cSelection * size * size, cSelection);
-            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.2f\n", size, "Quick Sort", avgQuickSortTime, cQuick * size * log2n, cQuick);
-            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.2f\n", size, "Merge Sort", avgMergeSortTime, cMerge * size * log2n, cMerge);
-
+            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.10f\n", size, "Insertion Sort", avgInsertionSortTime, theoreticalInsertionTime, cInsertion);
+            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.10f\n", size, "Selection Sort", avgSelectionSortTime, theoreticalSelectionTime, cSelection);
+            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.10f\n", size, "Quick Sort", avgQuickSortTime, theoreticalQuickTime, cQuick);
+            System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.10f\n", size, "Merge Sort", avgMergeSortTime, theoreticalMergeTime, cMerge);
             System.out.println("---------------------------------------------------------------------------------------------");
         }
     }
