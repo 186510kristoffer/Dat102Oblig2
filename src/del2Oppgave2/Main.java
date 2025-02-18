@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] array = {5, 3, 8, 4, 2};
+        Integer[] array = {3,4,9,6,5,2};
 
         // Kopier arrayet for hver sorteringsmetode
         Integer[] arrayForInsertion = array.clone();
@@ -22,5 +22,6 @@ public class Main {
         System.out.println("Selection Sort: " + Arrays.toString(arrayForSelection));
         System.out.println("Quick Sort: " + Arrays.toString(arrayForQuick));
         System.out.println("Merge Sort: " + Arrays.toString(arrayForMerge));
+        
     }
 }

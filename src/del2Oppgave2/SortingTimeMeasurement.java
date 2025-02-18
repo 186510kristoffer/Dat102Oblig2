@@ -58,10 +58,7 @@ public class SortingTimeMeasurement {
             double cSelection = Math.max(avgSelectionSortTime / (size * size), smallConstant);
             double cQuick = Math.max(avgQuickSortTime / (size * log2n), smallConstant);
             double cMerge = Math.max(avgMergeSortTime / (size * log2n), smallConstant);
-
-            // Debugging-utskrift for c-verdiene
-            System.out.printf("Debug c-values for N=%d: cInsertion=%.10f, cSelection=%.10f, cQuick=%.10f, cMerge=%.10f\n",
-                    size, cInsertion, cSelection, cQuick, cMerge);
+            
 
             // Beregn teoretiske tider
             double theoreticalInsertionTime = cInsertion * size * size;
@@ -75,6 +72,7 @@ public class SortingTimeMeasurement {
             System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.10f\n", size, "Quick Sort", avgQuickSortTime, theoreticalQuickTime, cQuick);
             System.out.printf("%-10d %-20s %-20.2f %-20.2f %-20.10f\n", size, "Merge Sort", avgMergeSortTime, theoreticalMergeTime, cMerge);
             System.out.println("---------------------------------------------------------------------------------------------");
+
         }
     }
 }
