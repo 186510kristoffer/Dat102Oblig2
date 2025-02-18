@@ -45,7 +45,7 @@ public class InnsettingMinste {
     
     }
 
-    // Ny metode for å sette inn to elementer om gangen
+ // Ny metode for å sette inn to elementer om gangen
     public static <T extends Comparable<? super T>> void sorterVedInnsettingMedToElementer(T[] a, int forste, int siste) {
         for (int i = forste + 1; i <= siste; i++) {
             // Finn minste og største element
