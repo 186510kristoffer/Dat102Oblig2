@@ -25,6 +25,4 @@ public class Oppgave6Main {
         }
     }
 }
-//kan du se dette?
-// dette da?
 
