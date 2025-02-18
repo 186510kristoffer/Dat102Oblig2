@@ -1,10 +1,12 @@
 package testDel2Oppgave2;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
-
 import del2Oppgave2.SortingAlgorithms;
+import del2Oppgave2.TestDataGenerator;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SortingTests {
 
@@ -16,5 +18,27 @@ public class SortingTests {
         assertArrayEquals(expected, array);
     }
 
-    // Legg til flere test-metoder for andre algoritmer...
+    @Test
+    public void testSelectionSort() {
+        Integer[] array = {5, 3, 8, 4, 2};
+        Integer[] expected = {2, 3, 4, 5, 8};
+        SortingAlgorithms.selectionSort(array);
+        assertArrayEquals(expected, array);
+    }
+
+    @Test
+    public void testQuickSort() {
+        Integer[] array = {5, 3, 8, 4, 2};
+        Integer[] expected = {2, 3, 4, 5, 8};
+        SortingAlgorithms.quickSort(array);
+        assertArrayEquals(expected, array);
+    }
+
+    @Test
+    public void testMergeSort() {
+        Integer[] array = {5, 3, 8, 4, 2};
+        Integer[] expected = {2, 3, 4, 5, 8};
+        SortingAlgorithms.mergeSort(array);
+        assertArrayEquals(expected, array);
+    }
 }
