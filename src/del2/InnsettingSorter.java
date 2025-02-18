@@ -1,5 +1,7 @@
 package del2;
 
+//startkode fra forelesing, brukes til sammenligning
+
 public class InnsettingSorter { 
 	
 	public static <T extends Comparable<? super T>> void sorterVedInnsetting(T[] a) {
@@ -19,7 +21,7 @@ public class InnsettingSorter {
 				j--;
 			}
 
-			a[j + 1] = temp; //okei
+			a[j + 1] = temp;
 		}
 
 	}	
