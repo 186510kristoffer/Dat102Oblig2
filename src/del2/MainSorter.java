@@ -5,23 +5,31 @@ import java.util.Random;
 
 public class MainSorter {
     public static void main(String[] args) {
-        int storrelse = 1000000; // Endre denne for større tester
+        int storrelse = 100000; // Endre denne for større tester
         Integer[] tallTabell1 = genererTilfeldigeTall(storrelse);
         Integer[] tallTabell2 = Arrays.copyOf(tallTabell1, tallTabell1.length); // Kopi for metode 2
+        Integer[] tallTabell3 = Arrays.copyOf(tallTabell1, tallTabell1.length); //ny kopi
 
-        // 1a) Vanlig Insertion Sort
+        // Vanlig Insertion Sort
         long startTid1 = System.nanoTime();
         InnsettingSorter.sorterVedInnsetting(tallTabell1);
         long sluttTid1 = System.nanoTime();
         double tid1 = (sluttTid1 - startTid1) / 1_000_000.0; // Konverter til millisekunder
         System.out.println("Vanlig Insertion Sort brukte: " + tid1 + " ms");
 
-        // 1b) Insertion Sort med minste først
+        // 1a) Insertion Sort med minste først
         long startTid2 = System.nanoTime();
         InnsettingMinste.sorterVedInnsettingMedMin(tallTabell2);
         long sluttTid2 = System.nanoTime();
         double tid2 = (sluttTid2 - startTid2) / 1_000_000.0;
         System.out.println("Minste først Insertion Sort brukte: " + tid2 + " ms");
+        
+        // 1b) Sortering ved innsetting, to og to
+        long startTid3 = System.nanoTime();
+        Innsetting2og2.sorterVedInnsetting2og2(tallTabell3);
+        long sluttTid3 = System.nanoTime();
+        double tid3 = (sluttTid3 - startTid3) / 1_000_000.0;
+        System.out.println("To om gangen Insertion Sort brukte: " + tid3 + " ms");
     }
 
     // Metode for å generere tilfeldige tall
