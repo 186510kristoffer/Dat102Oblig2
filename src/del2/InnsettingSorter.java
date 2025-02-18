@@ -19,11 +19,12 @@ public class InnsettingSorter {
 				j--;
 			}
 
-			a[j + 1] = temp;
+			a[j + 1] = temp; //okei
 		}
 
 	}	
 
 }
+
 
 
