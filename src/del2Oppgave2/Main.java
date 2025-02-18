@@ -18,7 +18,6 @@ public class Main {
         SortingAlgorithms.quickSort(arrayForQuick);
         SortingAlgorithms.mergeSort(arrayForMerge);
 
-        // Skriv ut resultatene
         System.out.println("Insertion Sort: " + Arrays.toString(arrayForInsertion));
         System.out.println("Selection Sort: " + Arrays.toString(arrayForSelection));
         System.out.println("Quick Sort: " + Arrays.toString(arrayForQuick));

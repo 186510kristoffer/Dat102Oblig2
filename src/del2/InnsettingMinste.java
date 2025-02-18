@@ -2,6 +2,8 @@ package del2;
 
 import java.util.Arrays;
 
+//oppgave 1a)
+
 public class InnsettingMinste {
     
         public static <T extends Comparable<? super T>> void sorterVedInnsettingMedMin(T[] a) {

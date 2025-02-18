@@ -11,6 +11,12 @@ public class MainSorter {
         Integer[] tallTabell3 = Arrays.copyOf(tallTabell1, tallTabell1.length); // Kopi for metode 3
 
         // 1️⃣ Vanlig Insertion Sort
+        int storrelse = 100000; // Endre denne for større tester
+        Integer[] tallTabell1 = genererTilfeldigeTall(storrelse);
+        Integer[] tallTabell2 = Arrays.copyOf(tallTabell1, tallTabell1.length); // Kopi for metode 2
+        Integer[] tallTabell3 = Arrays.copyOf(tallTabell1, tallTabell1.length); //ny kopi
+
+        // Vanlig Insertion Sort
         long startTid1 = System.nanoTime();
         InnsettingSorter.sorterVedInnsetting(tallTabell1);
         long sluttTid1 = System.nanoTime();
@@ -18,6 +24,7 @@ public class MainSorter {
         System.out.println("Vanlig Insertion Sort brukte: " + tid1 + " ms");
 
         // 2️⃣ Insertion Sort med minste først
+        // 1a) Insertion Sort med minste først
         long startTid2 = System.nanoTime();
         InnsettingMinste.sorterVedInnsettingMedMin(tallTabell2);
         long sluttTid2 = System.nanoTime();
@@ -39,6 +46,14 @@ public class MainSorter {
      System.out.println("Minste først og sette inn to elementer om gangen brukte: " + tid3 + " ms");
 	}
 
+        
+        // 1b) Sortering ved innsetting, to og to
+        long startTid3 = System.nanoTime();
+        Innsetting2og2.sorterVedInnsetting2og2(tallTabell3);
+        long sluttTid3 = System.nanoTime();
+        double tid3 = (sluttTid3 - startTid3) / 1_000_000.0;
+        System.out.println("To om gangen Insertion Sort brukte: " + tid3 + " ms");
+    }
 
     private static Integer[] genererTilfeldigeTall(int storrelse) {
         Random rand = new Random();
