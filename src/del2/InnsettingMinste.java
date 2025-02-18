@@ -2,7 +2,7 @@ package del2;
 
 import java.util.Arrays;
 
-public class InsertionSortMod {
+public class InnsettingMinste {
     
         public static <T extends Comparable<? super T>> void sorterVedInnsettingMedMin(T[] a) {
         flyttMinstTilForste(a, 0, a.length - 1);  
