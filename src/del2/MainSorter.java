@@ -37,15 +37,13 @@ public class MainSorter {
         
         // 1c)
         
+     // 1c) Minste først + To om gangen
         long startTid4 = System.nanoTime();
-        // Flytt minste element til først posisjon
-        InnsettingMinste.sorterVedInnsettingMedMin(tallTabell3);
-        // Sett inn to elementer om gangen (minste og største)
-        InnsettingMinste.sorterVedInnsettingMedToElementer(tallTabell3, 0, tallTabell3.length - 1);
+        InnsettingMinste.sorterVedInnsettingMinsteOgTo(tallTabell3, 0, tallTabell3.length - 1);
         long sluttTid4 = System.nanoTime();
         double tid4 = (sluttTid4 - startTid4) / 1_000_000.0;
         System.out.println("Minste først og sette inn to elementer om gangen brukte: " + tid4 + " ms");
-   	
+  	
     }
 
 
