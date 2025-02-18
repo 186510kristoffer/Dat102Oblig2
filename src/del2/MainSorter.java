@@ -5,18 +5,18 @@ import java.util.Random;
 
 public class MainSorter {
     public static void main(String[] args) {
-        int storrelse = 10000; // Endre denne for større tester
+        int storrelse = 1000000; // Endre denne for større tester
         Integer[] tallTabell1 = genererTilfeldigeTall(storrelse);
         Integer[] tallTabell2 = Arrays.copyOf(tallTabell1, tallTabell1.length); // Kopi for metode 2
 
-        // 1️⃣ Vanlig Insertion Sort
+        // 1a) Vanlig Insertion Sort
         long startTid1 = System.nanoTime();
         InnsettingSorter.sorterVedInnsetting(tallTabell1);
         long sluttTid1 = System.nanoTime();
         double tid1 = (sluttTid1 - startTid1) / 1_000_000.0; // Konverter til millisekunder
         System.out.println("Vanlig Insertion Sort brukte: " + tid1 + " ms");
 
-        // 2️⃣ Insertion Sort med minste først
+        // 1b) Insertion Sort med minste først
         long startTid2 = System.nanoTime();
         InnsettingMinste.sorterVedInnsettingMedMin(tallTabell2);
         long sluttTid2 = System.nanoTime();
