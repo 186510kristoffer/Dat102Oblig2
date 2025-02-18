@@ -3,8 +3,8 @@ import java.util.Arrays;
 
 public class SortingTimeMeasurement {
     public static void main(String[] args) {
-    	int[] sizes = {16000, 32000, 64000}; // Bruk mindre listestørrelser
-    	int numMeasurements = 3;
+        int[] sizes = {32000, 64000, 128000};
+    	int numMeasurements = 5;
 
         // Tabell for resultater
         System.out.println("Resultat Kvikksortering:");
